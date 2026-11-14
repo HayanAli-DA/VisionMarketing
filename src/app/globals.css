@@ -1,0 +1,189 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Brand palette — Vision Marketing */
+  --color-forest: #1B3B2B;
+  --color-forest-light: #2A5240;
+  --color-forest-dark: #122A1E;
+  --color-coffee: #3E2723;
+  --color-coffee-light: #5D4037;
+  --color-ivory: #F8F7F4;
+  --color-ivory-dark: #EFEAE0;
+  --color-gold: #C8963E;
+  --color-gold-light: #D9AE63;
+  --color-gold-dark: #A8782A;
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Light theme mapped to Vision Marketing brand */
+  --background: #F8F7F4;          /* ivory */
+  --foreground: #3E2723;          /* coffee brown */
+  --card: #FFFFFF;
+  --card-foreground: #3E2723;
+  --popover: #FFFFFF;
+  --popover-foreground: #3E2723;
+  --primary: #1B3B2B;             /* forest green */
+  --primary-foreground: #F8F7F4;  /* ivory */
+  --secondary: #EFEAE0;           /* ivory-dark */
+  --secondary-foreground: #3E2723;
+  --muted: #EFEAE0;
+  --muted-foreground: #6B5D52;
+  --accent: #C8963E;              /* harvest gold */
+  --accent-foreground: #3E2723;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #E2DBCD;
+  --input: #E2DBCD;
+  --ring: #C8963E;
+  --chart-1: #1B3B2B;
+  --chart-2: #C8963E;
+  --chart-3: #3E2723;
+  --chart-4: #5D4037;
+  --chart-5: #2A5240;
+  --sidebar: #1B3B2B;
+  --sidebar-foreground: #F8F7F4;
+  --sidebar-primary: #C8963E;
+  --sidebar-primary-foreground: #3E2723;
+  --sidebar-accent: #2A5240;
+  --sidebar-accent-foreground: #F8F7F4;
+  --sidebar-border: #2A5240;
+  --sidebar-ring: #C8963E;
+}
+
+.dark {
+  --background: #122A1E;
+  --foreground: #F8F7F4;
+  --card: #1B3B2B;
+  --card-foreground: #F8F7F4;
+  --popover: #1B3B2B;
+  --popover-foreground: #F8F7F4;
+  --primary: #C8963E;
+  --primary-foreground: #122A1E;
+  --secondary: #2A5240;
+  --secondary-foreground: #F8F7F4;
+  --muted: #2A5240;
+  --muted-foreground: #C8B8A0;
+  --accent: #C8963E;
+  --accent-foreground: #122A1E;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: #2A5240;
+  --input: #2A5240;
+  --ring: #C8963E;
+  --chart-1: #C8963E;
+  --chart-2: #1B3B2B;
+  --chart-3: #F8F7F4;
+  --chart-4: #5D4037;
+  --chart-5: #2A5240;
+  --sidebar: #0F1F16;
+  --sidebar-foreground: #F8F7F4;
+  --sidebar-primary: #C8963E;
+  --sidebar-primary-foreground: #122A1E;
+  --sidebar-accent: #2A5240;
+  --sidebar-accent-foreground: #F8F7F4;
+  --sidebar-border: #2A5240;
+  --sidebar-ring: #C8963E;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-playfair), Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .font-serif-display {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  /* Custom scrollbar for long lists */
+  .scroll-elegant::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scroll-elegant::-webkit-scrollbar-track {
+    background: var(--color-ivory-dark);
+    border-radius: 8px;
+  }
+  .scroll-elegant::-webkit-scrollbar-thumb {
+    background: var(--color-gold);
+    border-radius: 8px;
+  }
+  .scroll-elegant::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold-dark);
+  }
+  /* Subtle paper / linen texture using radial gradients */
+  .bg-linen {
+    background-color: var(--color-ivory);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(62, 39, 35, 0.04) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+  .bg-forest-texture {
+    background-color: var(--color-forest);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(248, 247, 244, 0.05) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+  .shadow-elegant {
+    box-shadow: 0 1px 2px rgba(62, 39, 35, 0.06), 0 8px 24px rgba(62, 39, 35, 0.08);
+  }
+  .shadow-gold-glow {
+    box-shadow: 0 0 0 1px rgba(200, 150, 62, 0.25), 0 8px 28px rgba(200, 150, 62, 0.18);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}

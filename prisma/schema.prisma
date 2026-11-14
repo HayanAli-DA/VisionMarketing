@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model BuyerRegistration {
+  id            String   @id @default(cuid())
+  fullName      String
+  companyName   String
+  countryCity   String
+  businessType  String
+  taxId         String?
+  products      String   // comma-separated product keys
+  estimatedVolume String?
+  email         String
+  phone         String?
+  message       String?
+  status        String   @default("new") // new | reviewed | onboarded
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([createdAt])
+  @@index([status])
+}
+
+model ProductInquiry {
+  id          String   @id @default(cuid())
+  product     String
+  productName String
+  name        String
+  email       String
+  phone       String?
+  company     String?
+  country     String?
+  volume      String?
+  message     String?
+  status      String   @default("new") // new | quoted | closed
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([createdAt])
+  @@index([product])
+  @@index([status])
+}
