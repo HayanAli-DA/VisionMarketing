@@ -40,7 +40,7 @@ export function Header() {
       className={cn(
         "fixed top-0 inset-x-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-ivory/95 backdrop-blur-md shadow-elegant border-b border-[#e2dbcd]"
+          ? "bg-cream/95 backdrop-blur-md shadow-elegant border-b border-taupe"
           : "bg-transparent"
       )}
     >
@@ -48,7 +48,7 @@ export function Header() {
         <div className="flex h-16 lg:h-20 items-center justify-between gap-4">
           {/* Logo + tagline */}
           <Link href="#home" className="flex items-center gap-3 shrink-0">
-            <div className="relative h-11 w-11 lg:h-12 lg:w-12 rounded-md overflow-hidden ring-1 ring-gold/30 bg-white shadow-sm">
+            <div className="relative h-11 w-11 lg:h-12 lg:w-12 rounded-md overflow-hidden ring-1 ring-amber/40 bg-white shadow-sm">
               { }
               <img
                 src="/images/vision-logo-1.png"
@@ -60,7 +60,7 @@ export function Header() {
               <div
                 className={cn(
                   "font-serif-display font-extrabold tracking-tight text-lg lg:text-xl transition-colors",
-                  scrolled ? "text-forest" : "text-ivory"
+                  scrolled ? "text-brand" : "text-cream"
                 )}
               >
                 Vision Marketing
@@ -68,7 +68,7 @@ export function Header() {
               <div
                 className={cn(
                   "text-[10px] lg:text-[11px] font-medium uppercase tracking-[0.14em] transition-colors",
-                  scrolled ? "text-gold-dark" : "text-gold-light"
+                  scrolled ? "text-amber-dark" : "text-amber"
                 )}
               >
                 Buyer &amp; Exporter of Coorg Products
@@ -85,8 +85,8 @@ export function Header() {
                 className={cn(
                   "px-3 py-2 rounded-md text-[13px] font-medium transition-colors",
                   scrolled
-                    ? "text-coffee hover:text-forest hover:bg-ivory-dark"
-                    : "text-ivory/90 hover:text-white hover:bg-white/10"
+                    ? "text-ink hover:text-brand hover:bg-cream-deep"
+                    : "text-cream/90 hover:text-white hover:bg-white/10"
                 )}
               >
                 {item.label}
@@ -99,7 +99,7 @@ export function Header() {
             <Button
               onClick={openQuote}
               size="sm"
-              className="hidden sm:inline-flex bg-gold text-coffee hover:bg-gold-dark hover:text-coffee font-semibold shadow-gold-glow"
+              className="hidden sm:inline-flex bg-brand-gradient text-cream hover:brightness-110 font-semibold shadow-brand-glow"
             >
               Request Quote / Register as Buyer
             </Button>
@@ -113,17 +113,17 @@ export function Header() {
                   className={cn(
                     "xl:hidden",
                     scrolled
-                      ? "text-forest hover:bg-ivory-dark"
-                      : "text-ivory hover:bg-white/10"
+                      ? "text-brand hover:bg-cream-deep"
+                      : "text-cream hover:bg-white/10"
                   )}
                   aria-label="Open navigation menu"
                 >
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] bg-ivory p-0">
+              <SheetContent side="right" className="w-[300px] bg-cream p-0">
                 <SheetTitle className="sr-only">Navigation</SheetTitle>
-                <div className="flex items-center justify-between p-5 border-b border-[#e2dbcd] bg-forest">
+                <div className="flex items-center justify-between p-5 border-b border-[#e2dbcd] bg-ink">
                   <div className="flex items-center gap-2">
                     { }
                     <img
@@ -131,7 +131,7 @@ export function Header() {
                       alt="Vision Marketing logo"
                       className="h-10 w-10 object-contain rounded bg-white/90"
                     />
-                    <div className="font-serif-display text-ivory font-bold leading-tight">
+                    <div className="font-serif-display text-cream font-bold leading-tight">
                       Vision Marketing
                     </div>
                   </div>
@@ -139,7 +139,7 @@ export function Header() {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="text-ivory hover:bg-white/10"
+                      className="text-cream hover:bg-white/10"
                       aria-label="Close menu"
                     >
                       <X className="h-5 w-5" />
@@ -151,7 +151,7 @@ export function Header() {
                     <SheetClose asChild key={item.href}>
                       <Link
                         href={item.href}
-                        className="px-4 py-3 rounded-md text-coffee font-medium hover:bg-ivory-dark hover:text-forest transition-colors"
+                        className="px-4 py-3 rounded-md text-ink font-medium hover:bg-cream-deep hover:text-brand transition-colors"
                       >
                         {item.label}
                       </Link>
@@ -162,7 +162,7 @@ export function Header() {
                       setOpen(false);
                       openQuote();
                     }}
-                    className="mt-3 bg-gold text-coffee hover:bg-gold-dark font-semibold"
+                    className="mt-3 bg-amber text-ink hover:bg-amber-dark font-semibold"
                   >
                     Request Quote / Register as Buyer
                   </Button>

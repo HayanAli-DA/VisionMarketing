@@ -65,41 +65,41 @@ export function About() {
         {/* Section intro */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
-            <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-gold-dark mb-3">
+            <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-amber-dark mb-3">
               About &amp; Heritage
             </span>
-            <h2 className="font-serif-display text-forest text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-balance">
+            <h2 className="font-serif-display text-brand text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-balance">
               Deep roots in Kodagu — ethical, transparent wholesale trading.
             </h2>
-            <p className="mt-5 text-coffee/80 text-base lg:text-lg leading-relaxed">
+            <p className="mt-5 text-ink/80 text-base lg:text-lg leading-relaxed">
               For over two decades, Vision Marketing has anchored itself in the
               misty coffee and spice belt of Coorg (Kodagu), Karnataka. We work
               directly with local planters — buying fresh from the estate gate,
               curing and grading in our own Virajpet works, and dispatching
               precision-graded lots to wholesalers and exporters worldwide.
             </p>
-            <p className="mt-4 text-coffee/75 leading-relaxed">
+            <p className="mt-4 text-ink/80 leading-relaxed">
               Our promise is simple: full traceability, honest grading and
               consistent specifications — every season, every shipment.
             </p>
 
             <div className="mt-7 grid sm:grid-cols-2 gap-4">
               <div className="rounded-lg border border-[#e2dbcd] bg-white p-4 shadow-sm">
-                <Users className="h-5 w-5 text-forest mb-2" />
-                <div className="font-serif-display font-bold text-forest text-sm">
+                <Users className="h-5 w-5 text-brand mb-2" />
+                <div className="font-serif-display font-bold text-brand text-sm">
                   Proprietor-led
                 </div>
-                <p className="text-coffee/70 text-[13px] mt-1">
+                <p className="text-ink/80 text-[13px] mt-1">
                   Mr. Duddiyanda Fakrudhin Ashrafali — hands-on, estate-direct
                   relationships since 2001.
                 </p>
               </div>
               <div className="rounded-lg border border-[#e2dbcd] bg-white p-4 shadow-sm">
-                <Award className="h-5 w-5 text-forest mb-2" />
-                <div className="font-serif-display font-bold text-forest text-sm">
+                <Award className="h-5 w-5 text-brand mb-2" />
+                <div className="font-serif-display font-bold text-brand text-sm">
                   Compliant &amp; Traceable
                 </div>
-                <p className="text-coffee/70 text-[13px] mt-1">
+                <p className="text-ink/80 text-[13px] mt-1">
                   Registered Indian GST entity (29AFEPA6566L1Z3) with full estate-to-port traceability.
                 </p>
               </div>
@@ -115,19 +115,19 @@ export function About() {
                 alt="Ripe Robusta coffee cherries on a branch in a Coorg shade-grown plantation"
                 className="h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-soft/60 to-transparent" />
             </div>
-            <div className="absolute -bottom-6 -left-2 sm:left-6 max-w-xs rounded-xl bg-forest text-ivory p-5 shadow-elegant border border-gold/30">
-              <Quote className="h-5 w-5 text-gold mb-2" />
-              <p className="text-sm leading-relaxed text-ivory/90">
+            <div className="absolute -bottom-6 -left-2 sm:left-6 max-w-xs rounded-xl bg-ink text-cream p-5 shadow-elegant border border-amber/30">
+              <Quote className="h-5 w-5 text-amber-dark mb-2" />
+              <p className="text-sm leading-relaxed text-cream/90">
                 “Direct from the estates of Coorg — graded honestly, dispatched
                 with traceability you can trust.”
               </p>
-              <p className="mt-3 text-[11px] uppercase tracking-wider text-gold-light">
+              <p className="mt-3 text-[11px] uppercase tracking-wider text-amber">
                 — Vision Marketing, Virajpet
               </p>
             </div>
-            <div className="absolute -top-4 -right-2 sm:-right-4 hidden sm:flex items-center gap-1.5 rounded-full bg-gold text-coffee px-3 py-1.5 text-xs font-bold shadow-gold-glow">
+            <div className="absolute -top-4 -right-2 sm:-right-4 hidden sm:flex items-center gap-1.5 rounded-full bg-amber text-ink px-3 py-1.5 text-xs font-bold shadow-amber-glow">
               <MapPin className="h-3.5 w-3.5" /> Kodagu, Karnataka
             </div>
           </div>
@@ -136,10 +136,10 @@ export function About() {
         {/* Timeline */}
         <div className="mt-20 lg:mt-28">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <h3 className="font-serif-display text-forest text-2xl lg:text-3xl font-bold">
+            <h3 className="font-serif-display text-brand text-2xl lg:text-3xl font-bold">
               Our Legacy Timeline
             </h3>
-            <p className="mt-2 text-coffee/70 text-sm lg:text-base">
+            <p className="mt-2 text-ink/80 text-sm lg:text-base">
               Four milestones across 25 years of Coorg commodity trading,
               curing and grading excellence.
             </p>
@@ -149,7 +149,7 @@ export function About() {
           <div className="hidden md:block relative">
             <div className="absolute top-7 left-0 right-0 h-0.5 bg-[#e2dbcd]" />
             <div
-              className="absolute top-7 left-0 h-0.5 bg-gold transition-all duration-500"
+              className="absolute top-7 left-0 h-0.5 bg-amber transition-all duration-500"
               style={{ width: `${(active / (MILESTONES.length - 1)) * 100}%` }}
             />
             <div className="relative grid grid-cols-4 gap-4">
@@ -166,8 +166,8 @@ export function About() {
                       className={cn(
                         "relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-2 transition-all duration-300",
                         isActive
-                          ? "bg-forest border-gold text-gold scale-110 shadow-elegant"
-                          : "bg-white border-[#d6cdbb] text-coffee/50 group-hover:border-gold/60 group-hover:text-forest"
+                          ? "bg-ink border-amber text-amber-dark scale-110 shadow-elegant"
+                          : "bg-white border-[#d6cdbb] text-ink/80 group-hover:border-amber/60 group-hover:text-brand"
                       )}
                     >
                       <Icon className="h-6 w-6" />
@@ -175,7 +175,7 @@ export function About() {
                     <span
                       className={cn(
                         "mt-3 font-serif-display font-bold text-lg transition-colors",
-                        isActive ? "text-forest" : "text-coffee/60"
+                        isActive ? "text-brand" : "text-ink/80"
                       )}
                     >
                       {m.year}
@@ -183,7 +183,7 @@ export function About() {
                     <span
                       className={cn(
                         "mt-0.5 text-[12px] font-medium transition-colors",
-                        isActive ? "text-gold-dark" : "text-coffee/50"
+                        isActive ? "text-amber-dark" : "text-ink/80"
                       )}
                     >
                       {m.title}
@@ -196,7 +196,7 @@ export function About() {
             {/* Active detail card */}
             <div className="mt-8 rounded-2xl border border-[#e2dbcd] bg-white p-6 lg:p-8 shadow-elegant">
               <div className="flex items-start gap-4">
-                <div className="hidden sm:flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-forest text-gold">
+                <div className="hidden sm:flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-ink text-amber-dark">
                   {(() => {
                     const Icon = MILESTONES[active].icon;
                     return <Icon className="h-6 w-6" />;
@@ -204,14 +204,14 @@ export function About() {
                 </div>
                 <div>
                   <div className="flex flex-wrap items-baseline gap-3">
-                    <span className="font-serif-display text-2xl font-bold text-forest">
+                    <span className="font-serif-display text-2xl font-bold text-brand">
                       {MILESTONES[active].year}
                     </span>
-                    <span className="text-sm font-semibold text-gold-dark uppercase tracking-wide">
+                    <span className="text-sm font-semibold text-amber-dark uppercase tracking-wide">
                       {MILESTONES[active].title}
                     </span>
                   </div>
-                  <p className="mt-3 text-coffee/80 leading-relaxed">
+                  <p className="mt-3 text-ink/80 leading-relaxed">
                     {MILESTONES[active].detail}
                   </p>
                 </div>
@@ -228,16 +228,16 @@ export function About() {
                   key={m.year}
                   className="relative pl-16 pb-5 border-l-2 border-[#e2dbcd] ml-7"
                 >
-                  <span className="absolute -left-[31px] top-0 flex h-12 w-12 items-center justify-center rounded-full bg-forest text-gold border-2 border-gold">
+                  <span className="absolute -left-[31px] top-0 flex h-12 w-12 items-center justify-center rounded-full bg-ink text-amber-dark border-2 border-amber">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <div className="font-serif-display font-bold text-forest text-lg">
+                  <div className="font-serif-display font-bold text-brand text-lg">
                     {m.year}
                   </div>
-                  <div className="text-gold-dark text-xs font-semibold uppercase tracking-wide">
+                  <div className="text-amber-dark text-xs font-semibold uppercase tracking-wide">
                     {m.title}
                   </div>
-                  <p className="mt-2 text-coffee/75 text-sm leading-relaxed">
+                  <p className="mt-2 text-ink/80 text-sm leading-relaxed">
                     {m.detail}
                   </p>
                 </div>

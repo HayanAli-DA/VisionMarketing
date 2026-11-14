@@ -158,13 +158,13 @@ export function BuyerPortal() {
     <section id="buyer-portal" className="relative bg-linen py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-gold-dark mb-3">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.18em] text-amber-dark mb-3">
             B2B Buyer Registration &amp; Trade Membership
           </span>
-          <h2 className="font-serif-display text-forest text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-balance">
+          <h2 className="font-serif-display text-brand text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-balance">
             Become a registered trade partner.
           </h2>
-          <p className="mt-4 text-coffee/75 text-base lg:text-lg">
+          <p className="mt-4 text-ink/80 text-base lg:text-lg">
             Onboard as a domestic or international buyer to receive full
             technical catalogs, lab certificates, weekly crop reports and bulk
             contract quotations — direct from our Virajpet works.
@@ -174,8 +174,8 @@ export function BuyerPortal() {
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
           {/* Benefits panel */}
           <div className="lg:col-span-4">
-            <div className="rounded-2xl bg-forest text-ivory p-6 lg:p-8 h-full shadow-elegant relative overflow-hidden">
-              <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-gold/10 blur-2xl" />
+            <div className="rounded-2xl bg-ink text-cream p-6 lg:p-8 h-full shadow-elegant relative overflow-hidden">
+              <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-amber/10 blur-2xl" />
               <h3 className="font-serif-display text-xl font-bold relative">
                 What you get as a registered buyer
               </h3>
@@ -184,12 +184,12 @@ export function BuyerPortal() {
                   const Icon = b.icon;
                   return (
                     <li key={b.title} className="flex gap-3">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-forest-light border border-gold/30 text-gold-light">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-ink-muted border border-amber/30 text-amber">
                         <Icon className="h-5 w-5" />
                       </span>
                       <div>
-                        <div className="font-semibold text-ivory text-[14px]">{b.title}</div>
-                        <div className="text-ivory/65 text-[12px] leading-relaxed mt-0.5">
+                        <div className="font-semibold text-cream text-[14px]">{b.title}</div>
+                        <div className="text-cream/65 text-[12px] leading-relaxed mt-0.5">
                           {b.desc}
                         </div>
                       </div>
@@ -197,9 +197,9 @@ export function BuyerPortal() {
                   );
                 })}
               </ul>
-              <div className="mt-7 pt-5 border-t border-ivory/15 relative">
-                <div className="flex items-center gap-2 text-[12px] text-ivory/70">
-                  <ShieldCheck className="h-4 w-4 text-gold-light" />
+              <div className="mt-7 pt-5 border-t border-cream/15 relative">
+                <div className="flex items-center gap-2 text-[12px] text-cream/70">
+                  <ShieldCheck className="h-4 w-4 text-amber" />
                   Your data is used only for trade onboarding. GSTIN 29AFEPA6566L1Z3.
                 </div>
               </div>
@@ -211,24 +211,24 @@ export function BuyerPortal() {
             <div className="rounded-2xl bg-white border border-[#e2dbcd] shadow-elegant p-6 lg:p-8">
               {done ? (
                 <div className="text-center py-10">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-forest text-gold mb-4">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-ink text-amber-dark mb-4">
                     <Check className="h-8 w-8" />
                   </div>
-                  <h3 className="font-serif-display text-2xl font-bold text-forest">
+                  <h3 className="font-serif-display text-2xl font-bold text-brand">
                     Registration received — welcome, trade partner.
                   </h3>
-                  <p className="mt-3 text-coffee/75 max-w-md mx-auto">
+                  <p className="mt-3 text-ink/80 max-w-md mx-auto">
                     Thank you, {data.fullName.split(" ")[0] || "valued buyer"}.
                     Our trade desk will review your details and reach out within
                     one business day with your membership confirmation and access
                     to specification catalogs.
                   </p>
-                  <div className="mt-6 inline-flex items-center gap-2 rounded-lg bg-ivory border border-[#e2dbcd] px-4 py-2 text-[12px] text-coffee/70">
-                    <Mail className="h-4 w-4 text-gold-dark" />
+                  <div className="mt-6 inline-flex items-center gap-2 rounded-lg bg-cream border border-[#e2dbcd] px-4 py-2 text-[12px] text-ink/80">
+                    <Mail className="h-4 w-4 text-amber-dark" />
                     Reference ID generated for {data.email}
                   </div>
                   <div className="mt-6">
-                    <Button onClick={reset} variant="outline" className="border-forest/30 text-forest hover:bg-forest hover:text-ivory">
+                    <Button onClick={reset} variant="outline" className="border-brand/30 text-brand hover:bg-ink hover:text-cream">
                       Register another buyer
                     </Button>
                   </div>
@@ -255,10 +255,10 @@ export function BuyerPortal() {
                               className={cn(
                                 "flex h-10 w-10 items-center justify-center rounded-full border-2 transition-all",
                                 isActive
-                                  ? "bg-forest border-forest text-gold scale-105"
+                                  ? "bg-ink border-brand text-amber-dark scale-105"
                                   : isComplete
-                                  ? "bg-gold border-gold text-coffee"
-                                  : "bg-white border-[#d6cdbb] text-coffee/40"
+                                  ? "bg-amber border-amber text-ink"
+                                  : "bg-white border-[#d6cdbb] text-ink/80"
                               )}
                             >
                               {isComplete ? <Check className="h-5 w-5" /> : <Icon className="h-5 w-5" />}
@@ -267,7 +267,7 @@ export function BuyerPortal() {
                               <div
                                 className={cn(
                                   "text-[11px] font-bold uppercase tracking-wider",
-                                  isActive ? "text-forest" : isComplete ? "text-gold-dark" : "text-coffee/40"
+                                  isActive ? "text-brand" : isComplete ? "text-amber-dark" : "text-ink/80"
                                 )}
                               >
                                 Step {s.id}
@@ -275,7 +275,7 @@ export function BuyerPortal() {
                               <div
                                 className={cn(
                                   "text-[13px] font-semibold",
-                                  isActive ? "text-forest" : isComplete ? "text-coffee/70" : "text-coffee/40"
+                                  isActive ? "text-brand" : isComplete ? "text-ink/80" : "text-ink/80"
                                 )}
                               >
                                 {s.title}
@@ -286,7 +286,7 @@ export function BuyerPortal() {
                             <div
                               className={cn(
                                 "flex-1 h-0.5 mx-2 sm:mx-3 rounded transition-colors",
-                                step > s.id ? "bg-gold" : "bg-[#e2dbcd]"
+                                step > s.id ? "bg-amber" : "bg-[#e2dbcd]"
                               )}
                             />
                           )}
@@ -299,10 +299,10 @@ export function BuyerPortal() {
                   {step === 1 && (
                     <div className="space-y-5 animate-in fade-in duration-300">
                       <div>
-                        <h3 className="font-serif-display text-xl font-bold text-forest">
+                        <h3 className="font-serif-display text-xl font-bold text-brand">
                           Trade partner identity
                         </h3>
-                        <p className="text-coffee/60 text-[13px] mt-1">
+                        <p className="text-ink/80 text-[13px] mt-1">
                           Tell us who you are and where you operate from.
                         </p>
                       </div>
@@ -333,7 +333,7 @@ export function BuyerPortal() {
                       <div>
                         <Label htmlFor="countryCity">Country / City *</Label>
                         <div className="relative mt-1.5">
-                          <Globe2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-coffee/40" />
+                          <Globe2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-ink/80" />
                           <Input
                             id="countryCity"
                             value={data.countryCity}
@@ -351,10 +351,10 @@ export function BuyerPortal() {
                   {step === 2 && (
                     <div className="space-y-5 animate-in fade-in duration-300">
                       <div>
-                        <h3 className="font-serif-display text-xl font-bold text-forest">
+                        <h3 className="font-serif-display text-xl font-bold text-brand">
                           Business &amp; procurement profile
                         </h3>
-                        <p className="text-coffee/60 text-[13px] mt-1">
+                        <p className="text-ink/80 text-[13px] mt-1">
                           Help us tailor crop reports and quotations to your trade.
                         </p>
                       </div>
@@ -393,15 +393,15 @@ export function BuyerPortal() {
                                 className={cn(
                                   "flex items-center gap-3 rounded-lg border px-3 py-2.5 cursor-pointer transition-all",
                                   checked
-                                    ? "border-gold bg-gold/8"
-                                    : "border-[#e2dbcd] hover:border-gold/50 bg-white"
+                                    ? "border-amber bg-amber/8"
+                                    : "border-[#e2dbcd] hover:border-amber/50 bg-white"
                                 )}
                               >
                                 <Checkbox
                                   checked={checked}
                                   onCheckedChange={() => toggleProduct(p.key)}
                                 />
-                                <span className="text-[13px] font-medium text-coffee">{p.shortName}</span>
+                                <span className="text-[13px] font-medium text-ink">{p.shortName}</span>
                               </label>
                             );
                           })}
@@ -430,10 +430,10 @@ export function BuyerPortal() {
                   {step === 3 && (
                     <div className="space-y-5 animate-in fade-in duration-300">
                       <div>
-                        <h3 className="font-serif-display text-xl font-bold text-forest">
+                        <h3 className="font-serif-display text-xl font-bold text-brand">
                           Contact &amp; communication
                         </h3>
-                        <p className="text-coffee/60 text-[13px] mt-1">
+                        <p className="text-ink/80 text-[13px] mt-1">
                           How should our trade desk reach you?
                         </p>
                       </div>
@@ -441,7 +441,7 @@ export function BuyerPortal() {
                         <div>
                           <Label htmlFor="email">Email *</Label>
                           <div className="relative mt-1.5">
-                            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-coffee/40" />
+                            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-ink/80" />
                             <Input
                               id="email"
                               type="email"
@@ -456,7 +456,7 @@ export function BuyerPortal() {
                         <div>
                           <Label htmlFor="phone">WhatsApp / Phone *</Label>
                           <div className="relative mt-1.5">
-                            <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-coffee/40" />
+                            <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-ink/80" />
                             <Input
                               id="phone"
                               value={data.phone}
@@ -480,19 +480,19 @@ export function BuyerPortal() {
                       </div>
 
                       {/* Summary recap */}
-                      <div className="rounded-lg bg-ivory border border-[#e2dbcd] p-4">
-                        <div className="text-[11px] font-bold uppercase tracking-wider text-coffee/50 mb-2">
+                      <div className="rounded-lg bg-cream border border-[#e2dbcd] p-4">
+                        <div className="text-[11px] font-bold uppercase tracking-wider text-ink/80 mb-2">
                           Review
                         </div>
                         <dl className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-[12px]">
-                          <dt className="text-coffee/55">Company</dt>
-                          <dd className="font-medium text-coffee text-right">{data.companyName || "—"}</dd>
-                          <dt className="text-coffee/55">Location</dt>
-                          <dd className="font-medium text-coffee text-right">{data.countryCity || "—"}</dd>
-                          <dt className="text-coffee/55">Business type</dt>
-                          <dd className="font-medium text-coffee text-right">{data.businessType || "—"}</dd>
-                          <dt className="text-coffee/55">Products</dt>
-                          <dd className="font-medium text-coffee text-right">
+                          <dt className="text-ink/80">Company</dt>
+                          <dd className="font-medium text-ink text-right">{data.companyName || "—"}</dd>
+                          <dt className="text-ink/80">Location</dt>
+                          <dd className="font-medium text-ink text-right">{data.countryCity || "—"}</dd>
+                          <dt className="text-ink/80">Business type</dt>
+                          <dd className="font-medium text-ink text-right">{data.businessType || "—"}</dd>
+                          <dt className="text-ink/80">Products</dt>
+                          <dd className="font-medium text-ink text-right">
                             {data.products.length
                               ? `${data.products.length} selected`
                               : "—"}
@@ -508,19 +508,19 @@ export function BuyerPortal() {
                       onClick={back}
                       variant="ghost"
                       disabled={step === 1}
-                      className="text-coffee hover:bg-ivory-dark disabled:opacity-40"
+                      className="text-ink hover:bg-cream-deep disabled:opacity-40"
                     >
                       <ChevronLeft className="mr-1 h-4 w-4" /> Back
                     </Button>
                     {step < 3 ? (
-                      <Button onClick={next} className="bg-forest text-ivory hover:bg-forest-dark">
+                      <Button onClick={next} className="bg-ink text-cream hover:bg-ink-soft">
                         Continue <ChevronRight className="ml-1 h-4 w-4" />
                       </Button>
                     ) : (
                       <Button
                         onClick={submit}
                         disabled={submitting}
-                        className="bg-gold text-coffee hover:bg-gold-dark font-semibold"
+                        className="bg-amber text-ink hover:bg-amber-dark font-semibold"
                       >
                         {submitting ? (
                           <>

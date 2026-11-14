@@ -5,10 +5,15 @@
 import { products, type Product } from "@/lib/products";
 
 const BRAND = {
-  forest: "#1B3B2B",
-  coffee: "#3E2723",
-  ivory: "#F8F7F4",
-  gold: "#C8963E",
+  brand: "#E52619",
+  brandDark: "#C82519",
+  ink: "#171717",
+  cream: "#FFFDF8",
+  creamSoft: "#F6F1E8",
+  taupe: "#E8DFD3",
+  amber: "#F1B329",
+  amberWarm: "#F59A2F",
+  coffee: "#7A4227",
 };
 
 function escapeHtml(s: string): string {
@@ -65,39 +70,39 @@ export function buildSpecSheetHtml(productKey: string): string | null {
 <style>
   * { box-sizing: border-box; }
   body {
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-    color: ${BRAND.coffee};
-    background: #fff;
+    font-family: 'Manrope', 'Segoe UI', Arial, sans-serif;
+    color: ${BRAND.ink};
+    background: ${BRAND.cream};
     margin: 0; padding: 32px 36px;
     font-size: 12px; line-height: 1.5;
   }
   .head {
     display: flex; justify-content: space-between; align-items: flex-start;
-    border-bottom: 3px solid ${BRAND.gold}; padding-bottom: 14px; margin-bottom: 20px;
+    border-bottom: 3px solid ${BRAND.amber}; padding-bottom: 14px; margin-bottom: 20px;
   }
-  .brand { font-family: 'Playfair Display', Georgia, serif; }
-  .brand .name { font-size: 22px; font-weight: 800; color: ${BRAND.forest}; letter-spacing: -0.5px; }
-  .brand .tag { font-size: 9.5px; letter-spacing: 1px; color: ${BRAND.coffee}; text-transform: uppercase; margin-top: 2px; }
-  .brand .co { font-size: 10px; color: ${BRAND.gold}; font-weight: 700; margin-top: 6px; }
+  .brand { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .brand .name { font-size: 24px; font-weight: 700; color: ${BRAND.brand}; letter-spacing: -0.5px; }
+  .brand .tag { font-size: 9.5px; letter-spacing: 1px; color: ${BRAND.ink}; text-transform: uppercase; margin-top: 2px; }
+  .brand .co { font-size: 10px; color: ${BRAND.amberWarm}; font-weight: 700; margin-top: 6px; }
   .doc { text-align: right; }
-  .doc h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; margin: 0 0 4px; color: ${BRAND.coffee}; }
-  .doc .meta { font-size: 10px; color: #6b5d52; }
-  .doc .pill { display: inline-block; background: ${BRAND.forest}; color: ${BRAND.ivory}; padding: 3px 10px; border-radius: 999px; font-size: 9px; letter-spacing: 1px; margin-top: 6px; }
-  h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 14px; color: ${BRAND.forest}; margin: 22px 0 8px; padding-bottom: 5px; border-bottom: 1px solid #e2dbcd; }
-  p.lead { font-size: 12px; color: ${BRAND.coffee}; margin: 6px 0 12px; }
+  .doc h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; font-weight: 600; margin: 0 0 4px; color: ${BRAND.ink}; }
+  .doc .meta { font-size: 10px; color: ${BRAND.coffee}; }
+  .doc .pill { display: inline-block; background: ${BRAND.brand}; color: ${BRAND.cream}; padding: 3px 10px; border-radius: 999px; font-size: 9px; letter-spacing: 1px; margin-top: 6px; }
+  h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 16px; font-weight: 600; color: ${BRAND.brand}; margin: 22px 0 8px; padding-bottom: 5px; border-bottom: 1px solid ${BRAND.taupe}; }
+  p.lead { font-size: 12px; color: ${BRAND.ink}; margin: 6px 0 12px; }
   table { width: 100%; border-collapse: collapse; margin: 6px 0 14px; font-size: 11px; }
   .cap { font-size: 10.5px; font-weight: 700; color: ${BRAND.coffee}; margin: 4px 0 2px; font-style: italic; }
-  th, td { border: 1px solid #e2dbcd; padding: 6px 9px; text-align: left; vertical-align: top; }
-  thead th { background: ${BRAND.forest}; color: ${BRAND.ivory}; font-weight: 600; letter-spacing: 0.3px; }
-  tbody tr:nth-child(even) { background: ${BRAND.ivory}; }
-  table.kv th { width: 38%; background: ${BRAND.ivory}; color: ${BRAND.coffee}; }
+  th, td { border: 1px solid ${BRAND.taupe}; padding: 6px 9px; text-align: left; vertical-align: top; }
+  thead th { background: ${BRAND.brand}; color: ${BRAND.cream}; font-weight: 600; letter-spacing: 0.3px; }
+  tbody tr:nth-child(even) { background: ${BRAND.creamSoft}; }
+  table.kv th { width: 38%; background: ${BRAND.creamSoft}; color: ${BRAND.coffee}; }
   ul { margin: 4px 0 10px 18px; padding: 0; }
   li { margin: 2px 0; }
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .col h2 { margin-top: 0; }
-  .foot { margin-top: 26px; border-top: 2px solid ${BRAND.gold}; padding-top: 10px; font-size: 9.5px; color: #6b5d52; display: flex; justify-content: space-between; }
-  .cta { background: ${BRAND.ivory}; border: 1px solid ${BRAND.gold}; padding: 10px 14px; border-radius: 8px; margin: 16px 0; font-size: 11px; }
-  .cta strong { color: ${BRAND.forest}; }
+  .foot { margin-top: 26px; border-top: 2px solid ${BRAND.amber}; padding-top: 10px; font-size: 9.5px; color: ${BRAND.coffee}; display: flex; justify-content: space-between; }
+  .cta { background: ${BRAND.creamSoft}; border: 1px solid ${BRAND.amber}; padding: 10px 14px; border-radius: 8px; margin: 16px 0; font-size: 11px; }
+  .cta strong { color: ${BRAND.brand}; }
   @media print {
     body { padding: 18px; }
     .noprint { display: none; }

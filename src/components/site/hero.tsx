@@ -69,24 +69,24 @@ export function Hero() {
           alt="Misty Coorg coffee estates in Kodagu, Karnataka at dawn"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-forest-dark/85 via-forest/75 to-forest-dark/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-forest-dark/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/75 to-ink/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 to-transparent" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 flex-1 flex items-center pt-24 lg:pt-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-gold/15 border border-gold/40 px-3 py-1.5 text-xs font-semibold text-gold-light backdrop-blur-sm mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full bg-amber/15 border border-amber/50 px-3 py-1.5 text-xs font-semibold text-amber-dark backdrop-blur-sm mb-6">
               <Leaf className="h-3.5 w-3.5" />
               Virajpet, Kodagu (Coorg) • Trusted Since 2001
             </div>
 
-            <h1 className="font-serif-display text-ivory font-bold leading-[1.08] text-4xl sm:text-5xl lg:text-6xl xl:text-[4.1rem] text-balance">
+            <h1 className="font-serif-display text-cream font-bold leading-[1.08] text-4xl sm:text-5xl lg:text-6xl xl:text-[4.1rem] text-balance">
               25 Years of Excellence in Coorg Coffee Curing, Pepper Grading &amp; Global Agro-Exports.
             </h1>
 
-            <p className="mt-6 text-ivory/85 text-base sm:text-lg leading-relaxed max-w-2xl">
+            <p className="mt-6 text-cream/85 text-base sm:text-lg leading-relaxed max-w-2xl">
               Direct from the misty estates of Virajpet, Kodagu — delivering
               precision-graded Robusta coffee, bold black pepper, and pure Coorg
               honey to domestic wholesalers and international buyers since 2001.
@@ -96,7 +96,7 @@ export function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="bg-gold text-coffee hover:bg-gold-dark font-semibold shadow-gold-glow text-base h-12"
+                className="bg-brand-gradient text-cream hover:brightness-110 font-semibold shadow-brand-glow text-base h-12"
               >
                 <Link href="#products">
                   Explore Product Specifications
@@ -107,14 +107,14 @@ export function Hero() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-ivory/40 text-ivory hover:bg-ivory hover:text-forest bg-white/5 backdrop-blur-sm font-semibold text-base h-12"
+                className="border-amber/50 text-amber hover:bg-amber hover:text-ink bg-cream/10 backdrop-blur-sm font-semibold text-base h-12"
               >
                 <Link href="#buyer-portal">Register for Trade &amp; Price Updates</Link>
               </Button>
             </div>
 
-            <div className="mt-6 flex items-center gap-2 text-ivory/70 text-xs">
-              <ShieldCheck className="h-4 w-4 text-gold-light" />
+            <div className="mt-6 flex items-center gap-2 text-cream/70 text-xs">
+              <ShieldCheck className="h-4 w-4 text-amber" />
               <span>GSTIN 29AFEPA6566L1Z3 • Full traceability from Kodagu estates to export ports</span>
             </div>
           </div>
@@ -122,15 +122,15 @@ export function Hero() {
       </div>
 
       {/* Trust strip — 4 column counter bar */}
-      <div className="relative z-10 border-t border-gold/25 bg-forest-dark/80 backdrop-blur-sm">
+      <div className="relative z-10 border-t border-amber/25 bg-ink-soft/80 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <dl className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-gold/20">
+          <dl className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-amber/20">
             {TRUST.map((item, i) => (
               <div key={i} className="px-4 py-6 lg:py-7 text-center">
-                <dt className="font-serif-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gold leading-none">
+                <dt className="font-serif-display text-2xl sm:text-3xl lg:text-4xl font-bold text-amber-dark leading-none">
                   {item.value}
                 </dt>
-                <dd className="mt-2 text-[11px] sm:text-xs lg:text-[13px] font-medium text-ivory/75 uppercase tracking-wider">
+                <dd className="mt-2 text-[11px] sm:text-xs lg:text-[13px] font-medium text-cream/75 uppercase tracking-wider">
                   {item.label}
                 </dd>
               </div>

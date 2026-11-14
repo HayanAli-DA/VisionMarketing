@@ -155,17 +155,20 @@ export function QuoteDialog() {
         if (!v) close();
       }}
     >
-      <DialogContent className="sm:max-w-[560px] bg-ivory max-h-[92vh] overflow-y-auto scroll-elegant">
+      <DialogContent
+        aria-describedby={undefined}
+        className="sm:max-w-[560px] bg-cream max-h-[92vh] overflow-y-auto scroll-elegant"
+      >
         <DialogHeader>
           <div className="flex items-center gap-2 mb-1">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-forest text-gold">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-ink text-amber-dark">
               <MessageSquare className="h-5 w-5" />
             </span>
-            <DialogTitle className="font-serif-display text-xl text-forest">
+            <DialogTitle className="font-serif-display text-xl text-brand">
               {isInquiry ? "Inquire for Bulk Pricing" : "Request a Quote / Register as Buyer"}
             </DialogTitle>
           </div>
-          <DialogDescription className="text-coffee/70">
+          <DialogDescription className="text-ink/80">
             {isInquiry
               ? "Send a quick bulk-pricing request for this product. Our trade desk will respond within one business day."
               : "Send a quick quote request below, or register as a full trade partner for spec catalogs, crop reports and sample requests."}
@@ -174,15 +177,15 @@ export function QuoteDialog() {
 
         {done ? (
           <div className="text-center py-8">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-forest text-gold mb-3">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ink text-amber-dark mb-3">
               <Check className="h-7 w-7" />
             </div>
-            <h3 className="font-serif-display text-lg font-bold text-forest">
+            <h3 className="font-serif-display text-lg font-bold text-brand">
               Request received
             </h3>
-            <p className="mt-2 text-coffee/70 text-[13px] max-w-sm mx-auto">
+            <p className="mt-2 text-ink/80 text-[13px] max-w-sm mx-auto">
               Thank you. Our trade desk will review your request and respond to{" "}
-              <span className="font-medium text-coffee">{data.email}</span> within one business day.
+              <span className="font-medium text-ink">{data.email}</span> within one business day.
             </p>
             <Button
               onClick={() => {
@@ -191,7 +194,7 @@ export function QuoteDialog() {
                 setDone(false);
               }}
               variant="outline"
-              className="mt-5 border-forest/30 text-forest hover:bg-forest hover:text-ivory"
+              className="mt-5 border-brand/30 text-brand hover:bg-ink hover:text-cream"
             >
               Close
             </Button>
@@ -202,11 +205,11 @@ export function QuoteDialog() {
             <div>
               <Label htmlFor="q-product">Product of interest</Label>
               {isInquiry ? (
-                <div className="mt-1.5 flex items-center gap-2 rounded-md bg-gold/10 border border-gold/30 px-3 py-2.5">
-                  <span className="text-[13px] font-semibold text-coffee">
+                <div className="mt-1.5 flex items-center gap-2 rounded-md bg-amber/10 border border-amber/30 px-3 py-2.5">
+                  <span className="text-[13px] font-semibold text-ink">
                     {data.productName}
                   </span>
-                  <span className="ml-auto text-[10px] uppercase tracking-wider text-gold-dark font-bold">
+                  <span className="ml-auto text-[10px] uppercase tracking-wider text-amber-dark font-bold">
                     prefilled
                   </span>
                 </div>
@@ -317,7 +320,7 @@ export function QuoteDialog() {
               <Button
                 onClick={submit}
                 disabled={submitting}
-                className="flex-1 bg-forest text-ivory hover:bg-forest-dark"
+                className="flex-1 bg-ink text-cream hover:bg-ink-soft"
               >
                 {submitting ? (
                   <>
@@ -331,14 +334,14 @@ export function QuoteDialog() {
                 onClick={goFullRegistration}
                 variant="outline"
                 className={cn(
-                  "border-gold text-gold-dark hover:bg-gold hover:text-coffee font-semibold"
+                  "border-amber text-amber-dark hover:bg-amber hover:text-ink font-semibold"
                 )}
               >
                 Full registration <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </div>
 
-            <p className="text-[11px] text-coffee/50 text-center">
+            <p className="text-[11px] text-ink/80 text-center">
               By submitting you agree to be contacted by Vision Marketing for
               trade onboarding. GSTIN 29AFEPA6566L1Z3.
             </p>
