@@ -9,6 +9,7 @@ import {
   SheetContent,
   SheetTrigger,
   SheetTitle,
+  SheetDescription,
   SheetClose,
 } from "@/components/ui/sheet";
 import { useUi } from "@/lib/ui-store";
@@ -52,14 +53,14 @@ export function Header() {
               { }
               <img
                 src="/images/vision-logo-1.png"
-                alt="Vision Marketing logo — coffee beans over rolling Coorg hills"
+                alt="Vision Marketing logo: coffee beans over rolling Coorg hills"
                 className="h-full w-full object-contain"
               />
             </div>
             <div className="leading-tight">
               <div
                 className={cn(
-                  "font-serif-display font-extrabold tracking-tight text-lg lg:text-xl transition-colors",
+                  "font-serif-display font-extrabold tracking-tight text-lg lg:text-xl transition-colors truncate",
                   scrolled ? "text-brand" : "text-cream"
                 )}
               >
@@ -67,7 +68,7 @@ export function Header() {
               </div>
               <div
                 className={cn(
-                  "text-[10px] lg:text-[11px] font-medium uppercase tracking-[0.14em] transition-colors",
+                  "text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.08em] sm:tracking-[0.14em] transition-colors truncate",
                   scrolled ? "text-amber-dark" : "text-amber"
                 )}
               >
@@ -121,17 +122,17 @@ export function Header() {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] bg-cream p-0">
+              <SheetContent side="right" showCloseButton={false} className="w-[85vw] sm:w-[320px] max-w-sm bg-cream p-0">
                 <SheetTitle className="sr-only">Navigation</SheetTitle>
-                <div className="flex items-center justify-between p-5 border-b border-[#e2dbcd] bg-ink">
+                <SheetDescription className="sr-only">Mobile Navigation Menu</SheetDescription>
+                <div className="flex items-center justify-between p-4 sm:p-5 border-b border-[#e2dbcd] bg-ink">
                   <div className="flex items-center gap-2">
-                    { }
                     <img
                       src="/images/vision-logo-1.png"
                       alt="Vision Marketing logo"
-                      className="h-10 w-10 object-contain rounded bg-white/90"
+                      className="h-9 w-9 sm:h-10 sm:w-10 object-contain rounded bg-white/90"
                     />
-                    <div className="font-serif-display text-cream font-bold leading-tight">
+                    <div className="font-serif-display text-cream font-bold leading-tight text-base sm:text-lg">
                       Vision Marketing
                     </div>
                   </div>
@@ -146,12 +147,12 @@ export function Header() {
                     </Button>
                   </SheetClose>
                 </div>
-                <nav className="flex flex-col p-3">
+                <nav className="flex flex-col p-3 overflow-y-auto">
                   {NAV.map((item) => (
                     <SheetClose asChild key={item.href}>
                       <Link
                         href={item.href}
-                        className="px-4 py-3 rounded-md text-ink font-medium hover:bg-cream-deep hover:text-brand transition-colors"
+                        className="px-4 py-3 rounded-md text-ink font-medium hover:bg-cream-deep hover:text-brand transition-colors text-[15px]"
                       >
                         {item.label}
                       </Link>
@@ -162,7 +163,7 @@ export function Header() {
                       setOpen(false);
                       openQuote();
                     }}
-                    className="mt-3 bg-amber text-ink hover:bg-amber-dark font-semibold"
+                    className="mt-3 bg-brand-gradient text-cream hover:brightness-110 font-semibold shadow-brand-glow text-sm py-2.5"
                   >
                     Request Quote / Register as Buyer
                   </Button>

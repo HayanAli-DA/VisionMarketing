@@ -69,6 +69,8 @@
 
 :root {
   --radius: 0.625rem;
+  --font-manrope: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-cormorant: 'Cormorant Garamond', Garamond, Georgia, serif;
   /* Light theme mapped to SLN Coffee brand colors */
   --background: #FFFDF8;          /* cream */
   --foreground: #171717;          /* near-black */
@@ -215,4 +217,13 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }

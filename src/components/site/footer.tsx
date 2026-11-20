@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUp, MapPin, Mail, MessageCircle } from "lucide-react";
+import { ArrowUp, MapPin, Factory, Mail, MessageCircle, Phone } from "lucide-react";
 import { products } from "@/lib/products";
 
 const NAV = [
@@ -44,12 +44,24 @@ export function Footer() {
             </div>
             <p className="mt-4 text-cream/65 text-[13px] leading-relaxed">
               Precision-graded Robusta coffee, bold Tellicherry black pepper,
-              pure Coorg honey and plantation produce — direct from Virajpet,
+              pure Coorg honey and cured coffee husk, direct from Virajpet,
               Kodagu since 2001.
             </p>
-            <div className="mt-4 flex items-start gap-2 text-[12px] text-cream/60">
-              <MapPin className="h-4 w-4 text-amber shrink-0 mt-0.5" />
-              <span>Near KSRTC Bus Stand, Chockcity, Bilugunda, Hattur Road, Virajpet, Coorg (Kodagu), Karnataka – 571218, India.</span>
+            <div className="mt-4 space-y-2 text-[12px] text-cream/60">
+              <div className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 text-amber shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-semibold text-cream/80 block">Office Address:</span>
+                  Vision Coffee, Opposite to KSRTC Bus Stand, Next to Athreya Hospital, Virajpet 571218
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <Factory className="h-4 w-4 text-amber shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-semibold text-cream/80 block">Factory Address:</span>
+                  Vision Coffee Curing Works, Nalvathoklu Village and Post, Chockandalli, Virajpet 571218
+                </div>
+              </div>
             </div>
           </div>
 
@@ -98,20 +110,31 @@ export function Footer() {
             </h4>
             <div className="space-y-3">
               <a
-                href="mailto:sales@visionmarketing.in?subject=Bulk%20enquiry%20-%20Vision%20Marketing"
-                className="flex items-center gap-2 text-cream/75 text-[13px] hover:text-amber transition-colors"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=Visionmarketting5@gmail.com&su=Bulk%20enquiry%20-%20Vision%20Marketing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-cream/75 text-[13px] hover:text-amber transition-colors break-all"
               >
-                <Mail className="h-4 w-4 text-amber" />
-                sales@visionmarketing.in
+                <Mail className="h-4 w-4 text-amber shrink-0" />
+                Visionmarketting5@gmail.com
               </a>
               <a
-                href="https://wa.me/919000000000?text=Hello%20Vision%20Marketing"
+                href="https://wa.me/918762757287?text=Hello%20Vision%20Marketing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-cream/75 text-[13px] hover:text-amber transition-colors"
               >
-                <MessageCircle className="h-4 w-4 text-amber" />
-                WhatsApp Business
+                <MessageCircle className="h-4 w-4 text-amber shrink-0" />
+                WhatsApp: +91 87627 57287
+              </a>
+              <a
+                href="https://wa.me/919448108287?text=Hello%20Vision%20Marketing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-cream/75 text-[13px] hover:text-amber transition-colors"
+              >
+                <Phone className="h-4 w-4 text-amber shrink-0" />
+                WhatsApp / Call: +91 94481 08287
               </a>
               <div className="rounded-lg border border-cream/15 bg-ink-muted/40 p-3 mt-2">
                 <div className="text-[10px] uppercase tracking-wider text-cream/50 font-semibold">
@@ -130,8 +153,7 @@ export function Footer() {
       <div className="border-t border-cream/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[12px] text-cream/55 text-center sm:text-left">
-            © {new Date().getFullYear()} Vision Marketing. Proprietor: Duddiyanda
-            Fakrudhin Ashrafali. All rights reserved.
+            © {new Date().getFullYear()} Vision Marketing. Proprietor: D.F. Ashraf Ali. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <span className="text-[11px] text-cream/45">

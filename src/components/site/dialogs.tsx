@@ -19,7 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Loader2, Check, ArrowRight, MessageSquare } from "lucide-react";
+import { Loader2, Check, ArrowRight, MessageSquare, MessageCircle, ExternalLink, Mail } from "lucide-react";
 import { useUi } from "@/lib/ui-store";
 import { products } from "@/lib/products";
 import { useToast } from "@/hooks/use-toast";
@@ -141,7 +141,7 @@ export function QuoteDialog() {
       toast({
         variant: "destructive",
         title: "Something went wrong",
-        description: "Please try again or email sales@visionmarketing.in",
+        description: "Please try again or email Visionmarketting5@gmail.com",
       });
     } finally {
       setSubmitting(false);
@@ -157,7 +157,7 @@ export function QuoteDialog() {
     >
       <DialogContent
         aria-describedby={undefined}
-        className="sm:max-w-[560px] bg-cream max-h-[92vh] overflow-y-auto scroll-elegant"
+        className="sm:max-w-[560px] bg-cream max-h-[92vh] overflow-y-auto scroll-elegant p-4 sm:p-6"
       >
         <DialogHeader>
           <div className="flex items-center gap-2 mb-1">
@@ -176,17 +176,111 @@ export function QuoteDialog() {
         </DialogHeader>
 
         {done ? (
-          <div className="text-center py-8">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-ink text-amber-dark mb-3">
+          <div className="text-center py-6">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 mb-3 ring-4 ring-emerald-50">
               <Check className="h-7 w-7" />
             </div>
-            <h3 className="font-serif-display text-lg font-bold text-brand">
-              Request received
+            <h3 className="font-serif-display text-xl font-bold text-brand">
+              Request Received &amp; Saved
             </h3>
             <p className="mt-2 text-ink/80 text-[13px] max-w-sm mx-auto">
-              Thank you. Our trade desk will review your request and respond to{" "}
+              Thank you, <strong className="text-ink">{data.name}</strong>. Our trade desk has received your request and will respond to{" "}
               <span className="font-medium text-ink">{data.email}</span> within one business day.
             </p>
+
+            {/* Direct WhatsApp & Email Send */}
+            <div className="mt-5 p-4 rounded-xl bg-emerald-50/70 border border-emerald-500/30 text-left">
+              <div className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1">
+                Direct Dispatch Options
+              </div>
+              <p className="text-xs text-ink/75 mb-3">
+                Send your quote request directly to our Virajpet Trade Desks via WhatsApp or Email:
+              </p>
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <a
+                    href={`https://wa.me/918762757287?text=${encodeURIComponent(
+                      [
+                        "📦 *QUOTE / PRICING INQUIRY — VISION MARKETING*",
+                        "━━━━━━━━━━━━━━━━━━━━━━━━━━",
+                        data.productName ? `*Product:* ${data.productName}` : null,
+                        `*Name:* ${data.name}`,
+                        data.company ? `*Company:* ${data.company}` : null,
+                        data.country ? `*Location:* ${data.country}` : null,
+                        data.volume ? `*Target Volume:* ${data.volume}` : null,
+                        `*Email:* ${data.email}`,
+                        data.phone ? `*Phone:* ${data.phone}` : null,
+                        data.message ? `*Message:* ${data.message}` : null,
+                        "━━━━━━━━━━━━━━━━━━━━━━━━━━",
+                      ]
+                        .filter(Boolean)
+                        .join("\n")
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold py-2.5 px-3 shadow transition-all"
+                  >
+                    <MessageCircle className="h-4 w-4 fill-white" />
+                    <span>WhatsApp: +91 87627 57287</span>
+                    <ExternalLink className="h-3 w-3 opacity-80" />
+                  </a>
+                  <a
+                    href={`https://wa.me/919448108287?text=${encodeURIComponent(
+                      [
+                        "📦 *QUOTE / PRICING INQUIRY — VISION MARKETING*",
+                        "━━━━━━━━━━━━━━━━━━━━━━━━━━",
+                        data.productName ? `*Product:* ${data.productName}` : null,
+                        `*Name:* ${data.name}`,
+                        data.company ? `*Company:* ${data.company}` : null,
+                        data.country ? `*Location:* ${data.country}` : null,
+                        data.volume ? `*Target Volume:* ${data.volume}` : null,
+                        `*Email:* ${data.email}`,
+                        data.phone ? `*Phone:* ${data.phone}` : null,
+                        data.message ? `*Message:* ${data.message}` : null,
+                        "━━━━━━━━━━━━━━━━━━━━━━━━━━",
+                      ]
+                        .filter(Boolean)
+                        .join("\n")
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold py-2.5 px-3 shadow transition-all"
+                  >
+                    <MessageCircle className="h-4 w-4 fill-white" />
+                    <span>WhatsApp: +91 94481 08287</span>
+                    <ExternalLink className="h-3 w-3 opacity-80" />
+                  </a>
+                </div>
+
+                <a
+                  href={`mailto:Visionmarketting5@gmail.com?subject=${encodeURIComponent(
+                    `Pricing Quote Request - ${data.productName || data.name}`
+                  )}&body=${encodeURIComponent(
+                    [
+                      "QUOTE / PRICING INQUIRY — VISION MARKETING",
+                      "━━━━━━━━━━━━━━━━━━━━━━━━━━",
+                      data.productName ? `Product: ${data.productName}` : null,
+                      `Name: ${data.name}`,
+                      data.company ? `Company: ${data.company}` : null,
+                      data.country ? `Location: ${data.country}` : null,
+                      data.volume ? `Target Volume: ${data.volume}` : null,
+                      `Email: ${data.email}`,
+                      data.phone ? `Phone: ${data.phone}` : null,
+                      data.message ? `Message: ${data.message}` : null,
+                      "━━━━━━━━━━━━━━━━━━━━━━━━━━",
+                    ]
+                      .filter(Boolean)
+                      .join("\n")
+                  )}`}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand hover:bg-brand-dark text-cream text-xs font-bold py-2 px-3 border border-amber/30 transition-all"
+                >
+                  <Mail className="h-3.5 w-3.5 text-amber" />
+                  <span>Send via Email (Visionmarketting5@gmail.com)</span>
+                  <ExternalLink className="h-3 w-3 opacity-80" />
+                </a>
+              </div>
+            </div>
+
             <Button
               onClick={() => {
                 close();
@@ -194,7 +288,7 @@ export function QuoteDialog() {
                 setDone(false);
               }}
               variant="outline"
-              className="mt-5 border-brand/30 text-brand hover:bg-ink hover:text-cream"
+              className="mt-5 border-brand/30 text-brand hover:bg-ink hover:text-cream text-xs"
             >
               Close
             </Button>

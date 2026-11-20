@@ -1,21 +1,6 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://visionmarketing.in"),
@@ -24,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Vision Marketing",
   },
   description:
-    "Vision Marketing is a 25+ year buyer, processor & exporter of Coorg agricultural products in Virajpet, Kodagu, Karnataka. Precision-graded Robusta coffee, bold Tellicherry black pepper, pure Coorg honey & plantation produce. Coffee Curing Works since 2004, Pepper Grading Works since 2007. GSTIN 29AFEPA6566L1Z3.",
+    "Vision Marketing is a 25+ year buyer, processor & exporter of Coorg agricultural products in Virajpet, Kodagu, Karnataka. Precision-graded Robusta coffee, bold Tellicherry black pepper, pure Coorg honey & cured coffee husk. Coffee Curing Works since 2004, Pepper Grading Works since 2007. GSTIN 29AFEPA6566L1Z3.",
   keywords: [
     "Coorg Robusta coffee exporter",
     "Virajpet black pepper wholesaler",
@@ -57,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vision Marketing | Coorg Coffee, Pepper & Agro-Exports",
     description:
-      "Precision-graded Robusta coffee, bold Tellicherry black pepper & pure Coorg honey — direct from Virajpet estates since 2001.",
+      "Precision-graded Robusta coffee, bold Tellicherry black pepper & pure Coorg honey, direct from Virajpet estates since 2001.",
   },
   robots: {
     index: true,
@@ -75,9 +60,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${cormorant.variable} ${manrope.variable} antialiased bg-background text-foreground`}
-      >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased bg-background text-foreground">
         {children}
         <Toaster />
       </body>

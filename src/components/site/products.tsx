@@ -10,6 +10,7 @@ import {
   MessageSquare,
   CheckCircle2,
   Package,
+  Play,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { products, type Product } from "@/lib/products";
@@ -47,6 +48,7 @@ const ACCENT: Record<Product["accent"], { ring: string; chip: string; head: stri
 
 export function Products() {
   const [active, setActive] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(0);
   const openInquiry = useUi((s) => s.openInquiry);
   const product = products[active];
   const Icon = ICONS[product.icon] ?? Coffee;
@@ -61,7 +63,7 @@ export function Products() {
             Core Products &amp; Technical Specifications
           </span>
           <h2 className="font-serif-display text-brand text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-balance">
-            Precision-graded Coorg produce — export-ready specification sheets.
+            Precision-graded Coorg produce: export-ready specification sheets.
           </h2>
           <p className="mt-4 text-ink/80 text-base lg:text-lg">
             Browse grade-wise technical specifications for each product line.
@@ -78,7 +80,10 @@ export function Products() {
             return (
               <button
                 key={p.key}
-                onClick={() => setActive(i)}
+                onClick={() => {
+                  setActive(i);
+                  setSelectedImage(0);
+                }}
                 className={cn(
                   "flex items-center gap-2 rounded-full px-4 sm:px-5 py-2.5 text-sm font-semibold transition-all border",
                   isActive
@@ -97,26 +102,70 @@ export function Products() {
         {/* Active product panel */}
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
           {/* Left: overview */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 min-w-0">
             <div
               className={cn(
-                "rounded-2xl bg-white border border-[#e2dbcd] shadow-elegant p-6 lg:p-8 h-full ring-1",
+                "rounded-2xl bg-white border border-[#e2dbcd] shadow-elegant p-5 sm:p-6 lg:p-8 h-full ring-1",
                 accent.ring
               )}
             >
               <div className="flex items-center gap-3 mb-4">
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-ink text-amber-dark">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-ink text-amber-dark shrink-0">
                   <Icon className="h-6 w-6" />
                 </span>
-                <div>
+                <div className="min-w-0">
                   <h3 className="font-serif-display text-xl lg:text-2xl font-bold text-brand leading-tight">
                     {product.name}
                   </h3>
-                  <p className="text-[13px] text-amber-dark font-medium">
+                  <p className="text-[13px] text-amber-dark font-medium truncate">
                     {product.tagline}
                   </p>
                 </div>
               </div>
+
+              {/* Product Packaging Image Showcase */}
+              {product.images && product.images.length > 0 && (
+                <div className="mb-5">
+                  <div className="relative rounded-xl overflow-hidden bg-gradient-to-b from-[#25221e] via-[#1a1816] to-[#121110] border border-[#e2dbcd] shadow-elegant aspect-[4/5] max-h-[380px] flex items-center justify-center p-3">
+                    <img
+                      src={product.images[selectedImage]?.src || product.image}
+                      alt={product.images[selectedImage]?.alt || product.name}
+                      className="h-full w-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)] transition-all duration-300"
+                    />
+                    {/* Weight badge */}
+                    {product.images[selectedImage]?.weight && (
+                      <span className="absolute top-3 right-3 rounded-full bg-amber text-ink font-bold text-[11px] px-2.5 py-1 shadow-md">
+                        {product.images[selectedImage].weight}
+                      </span>
+                    )}
+                    {/* Packaging label */}
+                    <span className="absolute bottom-3 left-3 rounded-md bg-ink/90 backdrop-blur-sm text-cream font-medium text-[11px] px-2.5 py-1 border border-cream/20">
+                      {product.images[selectedImage]?.label || "Branded Pack"}
+                    </span>
+                  </div>
+
+                  {/* Thumbnail selector when multiple images exist */}
+                  {product.images.length > 1 && (
+                    <div className="flex gap-2 mt-2.5">
+                      {product.images.map((img, idx) => (
+                        <button
+                          key={img.src}
+                          type="button"
+                          onClick={() => setSelectedImage(idx)}
+                          className={cn(
+                            "flex-1 flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer",
+                            selectedImage === idx
+                              ? "bg-ink text-cream border-amber shadow-sm ring-1 ring-amber/50"
+                              : "bg-cream text-ink/80 border-[#e2dbcd] hover:border-amber/50 hover:bg-white"
+                          )}
+                        >
+                          <span>{img.label}</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
 
               <p className="text-ink/80 text-[14px] leading-relaxed">
                 {product.description}
@@ -131,8 +180,20 @@ export function Products() {
                 ))}
               </div>
 
+              {product.key === "black-pepper" && (
+                <div className="mt-4 pt-4 border-t border-[#ece5d6]">
+                  <a
+                    href="#infrastructure"
+                    className="inline-flex items-center gap-2 text-xs font-semibold text-brand hover:text-amber-dark transition-colors bg-amber/10 border border-amber/30 rounded-lg px-3.5 py-2.5 w-full justify-center sm:w-auto shadow-sm"
+                  >
+                    <Play className="h-3.5 w-3.5 fill-amber-dark text-amber-dark" />
+                    <span>Watch SMS Industry Pepper Grader in Live Action</span>
+                  </a>
+                </div>
+              )}
+
               {/* Varieties & grades */}
-              <div className="mt-6 grid grid-cols-2 gap-4">
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <div className="text-[11px] font-bold uppercase tracking-wider text-ink/80 mb-2">
                     Varieties
@@ -171,11 +232,11 @@ export function Products() {
                 <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-ink/80 mb-2">
                   <Package className="h-3.5 w-3.5" /> Standard Packaging
                 </div>
-                <ul className="grid grid-cols-2 gap-x-3 gap-y-1.5">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1.5">
                   {product.packaging.map((p) => (
                     <li key={p} className="text-[12px] text-ink/80 flex items-start gap-1.5">
                       <span className="text-amber-dark mt-0.5">›</span>
-                      {p}
+                      <span>{p}</span>
                     </li>
                   ))}
                 </ul>
@@ -203,7 +264,7 @@ export function Products() {
           </div>
 
           {/* Right: spec tables */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 min-w-0">
             <div className="rounded-2xl bg-white border border-[#e2dbcd] shadow-elegant overflow-hidden">
               <div className="bg-ink text-cream px-6 py-4 flex items-center justify-between">
                 <h4 className="font-serif-display text-lg font-bold">
@@ -240,13 +301,18 @@ export function Products() {
                 {/* Grade tables */}
                 {product.specTables.map((t, ti) => (
                   <div key={ti}>
-                    {t.caption && (
-                      <div className="text-[12px] font-semibold italic text-ink mb-2">
-                        {t.caption}
-                      </div>
-                    )}
-                    <div className="overflow-x-auto -mx-2 px-2">
-                      <table className="w-full text-[12px] border-collapse min-w-[520px]">
+                    <div className="flex items-center justify-between mb-2">
+                      {t.caption && (
+                        <div className="text-[12px] font-semibold italic text-ink">
+                          {t.caption}
+                        </div>
+                      )}
+                      <span className="text-[10.5px] text-stone italic sm:hidden ml-auto">
+                        Scroll table →
+                      </span>
+                    </div>
+                    <div className="overflow-x-auto -mx-4 sm:-mx-2 px-4 sm:px-2 scroll-elegant">
+                      <table className="w-full text-[12px] border-collapse min-w-[500px]">
                         <thead>
                           <tr>
                             {t.headers.map((h) => (

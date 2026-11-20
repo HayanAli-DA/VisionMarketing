@@ -55,7 +55,7 @@ export function buildSpecSheetHtml(productKey: string): string | null {
 
   const grades = product.grades.map((g) => `<li>${escapeHtml(g)}</li>`).join("");
   const varieties = product.varieties
-    .map((v) => `<li>${escapeHtml(v)}</li></li>`)
+    .map((v) => `<li>${escapeHtml(v)}</li>`)
     .join("");
   const packaging = product.packaging
     .map((p) => `<li>${escapeHtml(p)}</li>`)
@@ -66,7 +66,7 @@ export function buildSpecSheetHtml(productKey: string): string | null {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>${escapeHtml(product.name)} — Spec Sheet | Vision Marketing</title>
+<title>${escapeHtml(product.name)}: Spec Sheet | Vision Marketing</title>
 <style>
   * { box-sizing: border-box; }
   body {
@@ -114,7 +114,7 @@ export function buildSpecSheetHtml(productKey: string): string | null {
     <div class="brand">
       <div class="name">VISION MARKETING</div>
       <div class="tag">Buyer &amp; Exporter of Coorg Agricultural Products</div>
-      <div class="co">Virajpet, Kodagu (Coorg), Karnataka — Since 2001</div>
+      <div class="co">Virajpet, Kodagu (Coorg), Karnataka (Since 2001)</div>
     </div>
     <div class="doc">
       <h1>Technical Specification Sheet</h1>
@@ -147,11 +147,11 @@ export function buildSpecSheetHtml(productKey: string): string | null {
   ${tables}
 
   <div class="cta">
-    <strong>Request a quote or sample for this product:</strong> Email <u>sales@visionmarketing.in</u> with the document reference above, or register as a trade partner at visionmarketing.in#buyer-portal for weekly crop reports and bulk contract pricing.
+    <strong>Request a quote or sample for this product:</strong> Email <u>Visionmarketting5@gmail.com</u> with the document reference above, or register as a trade partner at visionmarketing.in#buyer-portal for weekly crop reports and bulk contract pricing.
   </div>
 
   <div class="foot">
-    <div>Vision Marketing • Proprietor: Duddiyanda Fakrudhin Ashrafali • GSTIN 29AFEPA6566L1Z3<br/>Near KSRTC Bus Stand, Chockcity, Bilugunda, Hattur Road, Virajpet, Coorg (Kodagu), Karnataka – 571218, India</div>
+    <div>Vision Marketing • Proprietor: D.F. Ashraf Ali • GSTIN 29AFEPA6566L1Z3<br/><strong>Office:</strong> Vision Coffee, Opp. KSRTC Bus Stand, Next to Athreya Hospital, Virajpet 571218 • <strong>Factory:</strong> Vision Coffee Curing Works, Nalvathoklu Village & Post, Chockandalli, Virajpet 571218</div>
     <div>Generated from visionmarketing.in</div>
   </div>
 
