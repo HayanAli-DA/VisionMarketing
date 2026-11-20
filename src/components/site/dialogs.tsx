@@ -125,27 +125,23 @@ export function QuoteDialog() {
     if (Object.keys(e).length) return;
 
     setSubmitting(true);
+    // Background API sync (non-blocking for serverless/read-only DB environments)
     try {
-      const res = await fetch("/api/inquiry", {
+      await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error("Inquiry failed");
-      setDone(true);
-      toast({
-        title: isInquiry ? "Bulk pricing request sent" : "Quote request received",
-        description: "Our trade desk will respond within one business day.",
-      });
-    } catch {
-      toast({
-        variant: "destructive",
-        title: "Something went wrong",
-        description: "Please try again or email Visionmarketting5@gmail.com",
-      });
-    } finally {
-      setSubmitting(false);
+    } catch (apiErr) {
+      console.warn("Background inquiry sync warning:", apiErr);
     }
+
+    setDone(true);
+    setSubmitting(false);
+    toast({
+      title: isInquiry ? "Bulk pricing request ready" : "Quote request ready",
+      description: "Click below to deliver directly via WhatsApp or Gmail.",
+    });
   };
 
   return (

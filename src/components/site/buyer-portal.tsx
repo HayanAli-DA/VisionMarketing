@@ -251,49 +251,61 @@ export function BuyerPortal() {
   const submit = async () => {
     if (!validateStep(3)) return;
     setSubmitting(true);
+
+    // Save to API in background (non-blocking so serverless/read-only DB never blocks the user)
     try {
-      const res = await fetch("/api/register", {
+      await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error("Registration failed");
+    } catch (apiErr) {
+      console.warn("Background registration sync warning:", apiErr);
+    }
 
+    try {
       // Automatically dispatch based on chosen channel
       if (data.dispatchChannel === "whatsapp") {
         const phone = data.whatsappRecipient === "9448108287" ? WHATSAPP_NUMBER_2 : WHATSAPP_NUMBER_1;
         const phoneDisplay = data.whatsappRecipient === "9448108287" ? WHATSAPP_DISPLAY_2 : WHATSAPP_DISPLAY_1;
         const waUrl = buildWhatsAppRegistrationUrl(data, phone);
+        
         try {
-          window.open(waUrl, "_blank", "noopener,noreferrer");
+          const win = window.open(waUrl, "_blank", "noopener,noreferrer");
+          if (!win || win.closed || typeof win.closed === "undefined") {
+            window.location.href = waUrl;
+          }
         } catch {
-          // Handled via prominent UI button in case popup is blocked
+          window.location.href = waUrl;
         }
 
         setDone(true);
         toast({
-          title: "Registration saved & WhatsApp link prepared",
+          title: "Registration ready & WhatsApp dispatched",
           description: `Dispatched to Trade Desk (${phoneDisplay}).`,
         });
       } else {
         const gmailUrl = buildGmailRegistrationUrl(data);
         try {
-          window.open(gmailUrl, "_blank", "noopener,noreferrer");
+          const win = window.open(gmailUrl, "_blank", "noopener,noreferrer");
+          if (!win || win.closed || typeof win.closed === "undefined") {
+            window.location.href = gmailUrl;
+          }
         } catch {
           window.location.href = buildEmailRegistrationUrl(data);
         }
 
         setDone(true);
         toast({
-          title: "Registration saved & Gmail prepared",
+          title: "Registration ready & Gmail prepared",
           description: `Complete details formatted in Gmail for ${TRADE_EMAIL}.`,
         });
       }
     } catch {
+      setDone(true);
       toast({
-        variant: "destructive",
-        title: "Something went wrong",
-        description: `Please try again or contact ${WHATSAPP_DISPLAY_1} directly.`,
+        title: "Registration prepared",
+        description: `Please click the button below to deliver your details.`,
       });
     } finally {
       setSubmitting(false);
